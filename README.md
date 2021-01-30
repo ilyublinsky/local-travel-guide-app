@@ -4,17 +4,17 @@ In class project for group 8.
 
 ## Guidelines
 
-![ScreenShot](Project1Guidelines.png)
+![ScreenShot](Images/Project1Guidelines.png)
 
 ## Presentation
 
-![ScreenShot](Project1Presentation.png)
+![ScreenShot](Images/Project1Presentation.png)
 ,,,
 
 ,,,
 ## Day 1 Outline
 
-![ScreenShot](Day1Checklist.png)
+![ScreenShot](Images/Day1Checklist.png)
 
 ## Project
 
