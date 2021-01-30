@@ -23,7 +23,7 @@ In class project for group 8.
 
 ## User Story
 
-AS A traveller,
+AS A traveler,
 I WANT to find new events and restaurants in a city that I am going to,
 SO THAT I can experience new things!
 
