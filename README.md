@@ -3,8 +3,8 @@ In class project for group 8.
 
 ## Guidelines
 
-![ScreenShot]()
+![ScreenShot](Project1Guidelines.png)
 
 ## Presentation
 
-![ScreenShot]()
+![ScreenShot](Project1Presentation.png)
