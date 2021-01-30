@@ -8,3 +8,7 @@ In class project for group 8.
 ## Presentation
 
 ![ScreenShot](Project1Presentation.png)
+
+## Day 1 Outline
+
+![ScreenShot](Day1Checklist.png)
