@@ -1,0 +1,13 @@
+.navbar {
+  padding: 10px;
+  /* background: #1abc9c !important; */
+}
+
+.tabs.is-toggle li.is-active a {
+background-color: #00d1b2 !important;
+border-color: #00d1b2 !important;
+}
+
+h1 {
+    margin-bottom: 0px !important;
+}
