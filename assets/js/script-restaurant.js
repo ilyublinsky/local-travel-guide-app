@@ -46,6 +46,7 @@ function searchEstablishmentId(cityId) {
 
                 establishmentId = data.establishments[i].establishment.id
                 console.log(establishmentId)
+
             }
         }
     });
@@ -63,11 +64,11 @@ function searchCuisinesId(cityId) {
 
         for (var i = 0; i < data.cuisines.length; i++) {
             if (data.cuisines[i].cuisine.cuisine_name == cuisineName) {
-                console.log(data.cuisines[i].cuisine.cuisine_id)
                 cuisineId = data.cuisines[i].cuisine.cuisine_id
-                // searchRestaurantsByCity(cityId, cuisineId);
+                console.log(cuisineId)
+                searchRestaurantsByCity(cityId, cuisineId);
             }
-            console.log(cuisineId)
+
         }
     });
 }
