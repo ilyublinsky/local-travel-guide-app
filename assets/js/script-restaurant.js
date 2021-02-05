@@ -14,6 +14,7 @@ var requestHeader = new Headers({
 
 $("#restaurant-field")
 function searchRestaurantsByCity(cityId, cuisineId, establishmentId) {
+    console.log(localStorage.getItem("cuisine"))
     console.log(establishmentId)
     var requestRestaurantsUrl = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&cuisines=${cuisineId}&establishment_type=${establishmentId}`;
     console.log(requestRestaurantsUrl);
@@ -25,6 +26,8 @@ function searchRestaurantsByCity(cityId, cuisineId, establishmentId) {
     }).then(function (data) {
 
         console.log(data);
+
+
         $("#restaurant-field").append()
 
     });
@@ -47,9 +50,13 @@ function searchEstablishmentId(cityId) {
                 establishmentId = data.establishments[i].establishment.id
                 console.log(establishmentId)
 
+
             }
         }
+        searchRestaurantsByCity(cityId, cuisineId, establishmentId);
     });
+
+
 }
 
 function searchCuisinesId(cityId) {
@@ -65,9 +72,12 @@ function searchCuisinesId(cityId) {
         for (var i = 0; i < data.cuisines.length; i++) {
             if (data.cuisines[i].cuisine.cuisine_name == cuisineName) {
                 cuisineId = data.cuisines[i].cuisine.cuisine_id
+
                 console.log(cuisineId)
 
-                searchRestaurantsByCity(cityId, cuisineId);
+                localStorage.setItem("cuisine", cuisineId);
+
+
             }
 
         }
@@ -89,6 +99,7 @@ function searchCityId(cityName) {
         console.log(data);
 
         var cityId = data.location_suggestions[0].id;
+        console.log(cityId);
         searchCuisinesId(cityId);
 
         searchEstablishmentId(cityId);
@@ -118,6 +129,7 @@ $("#search-button-rest").on("click", function (event) {
     console.log(establishmentName);
 
     searchCityId(cityNameInput);
+
     // getRestaurantsAround(cityNameInput);
 
 
