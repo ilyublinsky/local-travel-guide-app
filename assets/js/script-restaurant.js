@@ -25,6 +25,7 @@ function searchRestaurantsByCity(cityId, cuisineId, establishmentId) {
         return response.json();
     }).then(function (data) {
 
+        
         console.log(data);
 
 
@@ -56,7 +57,7 @@ function searchEstablishmentId(cityId) {
         searchRestaurantsByCity(cityId, cuisineId, establishmentId);
     });
 
-
+    console.log(establishmentId)
 }
 
 function searchCuisinesId(cityId) {
@@ -81,6 +82,7 @@ function searchCuisinesId(cityId) {
             }
 
         }
+        console.log(cuisineId)
     });
 }
 
