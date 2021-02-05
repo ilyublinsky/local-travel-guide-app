@@ -6,7 +6,6 @@ body {
   padding: 10px;
   /* background: #1abc9c !important; */
 }
-
 .tabs.is-toggle li.is-active a {
 background-color: #00d1b2 !important;
 border-color: #00d1b2 !important;
@@ -14,4 +13,17 @@ border-color: #00d1b2 !important;
 
 h1 {
     margin-bottom: 0px !important;
+}
+.insider-footer{
+color:black;
+font-size:20px;
+padding:30px;
+}
+
+.page-space{
+margin:50px;
+}
+
+.insider-bold-text{
+font-weight:bold;
 }
