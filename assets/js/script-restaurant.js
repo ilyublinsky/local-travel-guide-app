@@ -66,6 +66,7 @@ function searchCuisinesId(cityId) {
             if (data.cuisines[i].cuisine.cuisine_name == cuisineName) {
                 cuisineId = data.cuisines[i].cuisine.cuisine_id
                 console.log(cuisineId)
+
                 searchRestaurantsByCity(cityId, cuisineId);
             }
 
