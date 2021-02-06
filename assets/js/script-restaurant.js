@@ -36,12 +36,25 @@ function displayRestaurants(restaurantsList) {
         var restaurantDetailsSection = $("<section>").addClass("card-content columns");
         var optionsColumn = $("<div>").addClass("column");
         var cuisineData = $("<p>").text("Cuisines: " + data[i].restaurant.cuisines)
+
         var costForTwo = $("<p>").text("Cost for two: " + data[i].restaurant.average_cost_for_two);
-        var priceRange = $("<p>").text("Price Avg: " + data[i].restaurant.price_range + (" "));
-        var priceRangeSpan = $("<span>").addClass("icon is-small");
+
+        var priceRange = $("<p>").text("Price Avg: " + (" "));
+        var priceRangeSpan = $("<span>").addClass("ml-5 icon is-small");
         var priceRangeIcon = $("<i>").attr({ class: "fas fa-hand-holding-usd", "aria-hidden": "true" });
+
+        var servesAlcohol = $("<p>").text("Serves Alcohol: ");
+        var alcoholAllowedSpan = $("<span>").addClass("icon is-small");
+        var alcoholAllowedIcon = $("<i>").attr({ class: "fas fa-thumbs-up", "aria-hidden": "true" });
+        var alcoholNotAllowedIcon = $("<i>").attr({ class: "far fa-thumbs-down", "aria-hidden": "true" });
+
+
+
         var highlightsColumn = $("<div>").addClass("column");
         var highlightsOfItems = $("<p>").addClass("has-text-centered").text("Highlights");
+
+
+
         var highlightsData = $("<p>").text(data[i].restaurant.highlights[i]);
 
         var phoneNumber = $("<p>").text("Phone Number: " + data[i].restaurant.phone_numbers);
@@ -58,20 +71,45 @@ function displayRestaurants(restaurantsList) {
         restaurantDetailsSection.append(optionsColumn);
         optionsColumn.append(cuisineData, costForTwo, priceRange);
         priceRange.append(priceRangeSpan);
+
         if (data[i].restaurant.price_range === 1) {
             priceRangeSpan.append(priceRangeIcon);
         } else if (data[i].restaurant.price_range === 2) {
             priceRangeSpan.append(priceRangeIcon);
-            priceRangeSpan.append(priceRangeIcon);
+            priceRangeSpan.append(priceRangeIcon.clone());
         } else if (data[i].restaurant.price_range === 3) {
             priceRangeSpan.append(priceRangeIcon);
+            priceRangeSpan.append(priceRangeIcon.clone());
+            priceRangeSpan.append(priceRangeIcon.clone());
+        } else if (data[i].restaurant.price_range === 4) {
             priceRangeSpan.append(priceRangeIcon);
-            priceRangeSpan.append(priceRangeIcon);
+            priceRangeSpan.append(priceRangeIcon.clone());
+            priceRangeSpan.append(priceRangeIcon.clone());
+            priceRangeSpan.append(priceRangeIcon.clone());
         }
+
+        optionsColumn.append(servesAlcohol.append(alcoholAllowedSpan));
+        for (var x = 0; x < data[i].restaurant.highlights.length; x++) {
+            if (data[i].restaurant.highlights[x] === "Serves Alcohol") {
+                alcoholAllowedSpan.append(alcoholAllowedIcon);
+            }
+            // else if (data[i].restaurant.highlights[x] !== "Serves Alcohol") {
+            //     alcoholAllowedSpan.append(alcoholNotAllowedIcon);
+            // }
+        }
+
+
 
         restaurantDetailsSection.append(highlightsColumn);
         highlightsColumn.append(highlightsOfItems);
-        highlightsColumn.append(highlightsData);
+
+        for (var j = 0; j < 5; j++) {
+            highlightsData = $("<p>").text(data[i].restaurant.highlights[j])
+            highlightsColumn.append(highlightsData);
+
+        }
+
+
     }
 }
 
