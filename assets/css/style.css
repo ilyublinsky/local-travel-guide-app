@@ -1,12 +1,7 @@
-body {
-  background-color: #effaf3;
-}
-
 .navbar {
   padding: 10px;
   /* background: #1abc9c !important; */
 }
-
 .tabs.is-toggle li.is-active a {
 background-color: #00d1b2 !important;
 border-color: #00d1b2 !important;
@@ -14,4 +9,46 @@ border-color: #00d1b2 !important;
 
 h1 {
     margin-bottom: 0px !important;
+}
+.insider-footer{
+color:black;
+font-size:20px;
+padding:30px;
+}
+
+.page-space{
+margin:50px;
+}
+
+.insider-bold-text {
+font-weight:bold;
+}
+
+.restaurant-field {
+margin-bottom: 20px;
+
+}
+
+figure {
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 220px;
+    margin: auto;
+    
+}
+
+img {
+    max-width: 220px;
+    max-height: 150px;
+}
+
+
+figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
 }

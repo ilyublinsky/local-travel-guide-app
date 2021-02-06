@@ -1,3 +1,4 @@
+
 var apiKey = "AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA";
 var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA";
 var eventName;
