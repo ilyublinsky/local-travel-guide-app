@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< Updated upstream
-    <title>Document</title>
-=======
-    <title>Home - Traveler's Insider</title>
->>>>>>> Stashed changes
+    <title>Find Events - Traveler's Insider</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
+</head>
 
-<<<<<<< Updated upstream
-<body>
-    <nav class="navbar content is-primary" role="navigation" aria-label="main navigation">
+<body class="has-background-dark">
+    <nav class="navbar content is-primary" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="index.html">
                 <h1 class="has-text-light">Traveler's Insider</h1>
@@ -46,96 +39,76 @@
                         </a>
                     </div>
                 </div>
-=======
->>>>>>> Stashed changes
 
-<body>
-
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark is-fluid bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Traveler's Insider</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" aria-current="page" href="restaurants.html">Search Restaurants</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="events.html">Search Events</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
+    <div class="page-space"></div>
 
-    <main>
+    <main class="container is-fluid">
+        <div class="columns">
+            <section class="content box column is-10 is-offset-1 has-background-success-light">
+                <h2 class="has-text-centered">Search Events</h2>
 
-        <div class="container p-8 my-6 bg-dark text-white ">
-            <h2 class="has-text-centered">Search Events</h2>
-            <form class="box column is-10 is-offset-1 has-background-light">
-                <div class="tabs is-centered is-toggle is-toggle-rounded">
-                    <ul>
-                        <li>
-                            <a class="link" href="restaurants.html">
-                                <span class="icon is-small"><i class="fas fa-utensils" aria-hidden="true"></i></span>
-                                <span>Restaurants</span>
-                            </a>
-                        </li>
-                        <li class="is-active">
-                            <a>
-                                <span class="icon is-small"><i class="fas fa-globe-americas"
-                                        aria-hidden="true"></i></span>
-                                <span>Events</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="field">
-                    <label class="label">City name</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="Seattle">
+                <form class="box column is-10 is-offset-1 has-background-light">
+                    <div class="tabs is-centered is-toggle is-toggle-rounded">
+                        <ul>
+                            <li>
+                                <a class="link" href="restaurants.html">
+                                    <span class="icon is-small"><i class="fas fa-utensils"
+                                            aria-hidden="true"></i></span>
+                                    <span>Restaurants</span>
+                                </a>
+                            </li>
+                            <li class="is-active">
+                                <a>
+                                    <span class="icon is-small"><i class="fas fa-globe-americas"
+                                            aria-hidden="true"></i></span>
+                                    <span>Events</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-
-                <div class="field">
-                    <label class="label">Some details</label>
-                    <div class="control">
-                        <input id="#search-input-event" class="input" type="text" placeholder="what api provides?...">
+                    <div class="field">
+                        <label class="label">City name</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Seattle">
+                        </div>
                     </div>
-                </div>
-                <button id="search-button-event" class="button is-primary">Search</button>
-            </form>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+
+                    <div class="field">
+                        <label class="label">Some details</label>
+                        <div class="control">
+                            <input id="#search-input-event" class="input" type="text"
+                                placeholder="what api provides?...">
+                        </div>
+                    </div>
+                    <button id="search-button-event" class="button is-primary">Search</button>
+                </form>
+            </section>
         </div>
     </main>
 
 
+<!--Adding a results column.-->
+    <div class="column is-12">
+        <div id="events-field" class="tabs is-centered is-boxed is-medium">
+            <ul>
+                <li class="is-active">
+                    <a>
+                        <span class="icon is-small"><i class="far fa-comment-music" aria-hidden="true"></i></span>
+                        <span>Events</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-    
 
-
-    
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-        <script src="assets/js/script.js"></script>
-
+    <script src="assets/js/script-events.js"></script>
 
 </body>
 
