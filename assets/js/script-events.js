@@ -1,35 +1,54 @@
-var apiKey = "0e7YuLyBXAv1Qsa4vk3zxLO5vQfTjoN5x"
-var requestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apikey}`
+var apiKey = "AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA";
+var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA?per_page=10";
+var eventName;
+var eventDate = "mm, dd, yyyy";
+var eventTime = "hh, mm"
+var eventDescription;
+var eventImg;
+var eventPrice;
+var eventId;
 
-var requestHeader = new Headers({
-    'user-key': apiKey
-})
-function searchCity(cityName) {
-    // building the complete api call url by adding the cityName parameter to the base url
-    // note the second parameter to the fetch() call, which is an object with a "headers"
-    // property, which I set equal to our requestHeader object from earlier
-    fetch(citiesUrl + cityName, {
-        headers: requestHeader
-    }).then(function (response) {
-        return response.json()
+$("event-field")
+function searchForEvents (eventId);
+
+fetch(requestCityEventsUrl), {
+    .then(function(response) {
+    return response.json(; (
+    .then(function ())
+        ))
+    }
+}
+function eventName (){
+    fetch (requestCityEventsUrl)
+    .then(function (response) {
+        return response.json();
     }).then(function (data) {
-        // log the returned data.
-        // (Look at the "location_suggestions" property of the returned object)
         console.log(data);
+for (var = 0; i < data.length; i++)
+        {
+        var eventName = document.createElement("h2");
+        var eventDate = document.createElement("h5");
+        var eventTime = document.createElement("h6");
+        var eventDescription = document.createElement("p");
+        var eventImg = document.createElement("placeholder");
+        
+        eventName.textContent = date[i].embedded.events.name;
+        eventDate.textContent = date[i].embedded.events.initialStartDate.localDate;
+        eventTime.textContent = date[i].embedded.events.initialStartDate.localTime;
+        eventDescription.textContent = date[i].embedded.events.info;
+        eventImg = date[i].embedded.events.images;
+        }
     })
 }
 
-searchCity("Seattle");
+$("#search-button-event").on("click", function(event){
+    event.preventDefault();
+    console.log('Hello World')
 
-function getRestaurantsAround(cityNameInput) {
+    var eventNameInput = $("#search-input-city").val();
+    var eventDateSelect = $("search-input-event").val();
+        console.log(eventNameInput);
 
-};
 
-$("#search-button-rest").on("click", function () {
-    var cityNameInput = $("#search-input-city").val();
-    var restaurantNameSelect = $("#search-input-rest").val();
-
-    searchCity(cityNameInput);
-    getRestaurantsAround(cityNameInput);
-    console.log(cityNameInput)
-})
+    eventName ();
+});
