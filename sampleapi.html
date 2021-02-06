@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Check your console!</h3>
+    ​
+    <script>
+        // your api key
+        var apiKey = `062f1094719e081c0ffc6ab1f3e61902`;
+
+        // the base url to search for cities, including the "?q=" part of the query string
+        var citiesUrl = `https://developers.zomato.com/api/v2.1/cities?q=`
+
+        // an object to store the request headers for your api call.
+        // the documentation specifies that the api key needs to be sent as a "header", which we 
+        // haven't talked about yet, but this is how you do it. note the parameter name is
+        // "user-key", like specified in the documentation
+        var requestHeader = new Headers({
+            'user-key': apiKey
+        })
+        function searchCity(cityName) {
+            // building the complete api call url by adding the cityName parameter to the base url
+            // note the second parameter to the fetch() call, which is an object with a "headers"
+            // property, which I set equal to our requestHeader object from earlier
+            fetch(citiesUrl + cityName, {
+                headers: requestHeader
+            }).then(function (response) {
+                return response.json()
+            }).then(function (data) {
+                // log the returned data.
+                // (Look at the "location_suggestions" property of the returned object)
+                console.log(data);
+            })
+        }
+
+        searchCity("Seattle");
+    </script>
+</body>
+
+</html>
