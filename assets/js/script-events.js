@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var apiKey = "AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA";
 var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA?per_page=10";
 var eventName;
@@ -18,12 +19,22 @@ fetch(requestCityEventsUrl), {
         ))
     }
 }
+=======
+
+var apiKey = "AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA";
+var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA";
+var eventName;
+var eventDate = "mm, dd, yyyy";
+var eventId;
+
+>>>>>>> 027f19d17f1de870c2f7351acf09b5abf97c3df7
 function eventName (){
     fetch (requestCityEventsUrl)
     .then(function (response) {
         return response.json();
     }).then(function (data) {
         console.log(data);
+<<<<<<< HEAD
 for (var = 0; i < data.length; i++)
         {
         var eventName = document.createElement("h2");
@@ -38,6 +49,9 @@ for (var = 0; i < data.length; i++)
         eventDescription.textContent = date[i].embedded.events.info;
         eventImg = date[i].embedded.events.images;
         }
+=======
+    
+>>>>>>> 027f19d17f1de870c2f7351acf09b5abf97c3df7
     })
 }
 
@@ -51,4 +65,8 @@ $("#search-button-event").on("click", function(event){
 
 
     eventName ();
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 027f19d17f1de870c2f7351acf09b5abf97c3df7
