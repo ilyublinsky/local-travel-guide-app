@@ -1,12 +1,8 @@
 var apiKey = "AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA";
-var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v1/events.json?apikey=AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA";
+var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA";
 var eventName;
 var eventDate = "mm, dd, yyyy";
 var eventId;
-
-// var requestHeader = new Headers({
- //   'user-key': apiKey
-//});
 
 function eventName (){
     fetch (requestCityEventsUrl)
@@ -18,7 +14,14 @@ function eventName (){
     })
 }
 
-$("#search-button-event").on("click", function(){
+$("#search-button-event").on("click", function(event){
+    event.preventDefault();
     console.log('Hello World')
+
+    var eventNameInput = $("#search-input-city").val();
+    var eventDateSelect = $("search-input-event").val();
+        console.log(eventNameInput);
+
+
     eventName ();
 });
