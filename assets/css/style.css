@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .navbar {
   padding: 10px;
   /* background: #1abc9c !important; */
@@ -11,3 +12,47 @@ border-color: #00d1b2 !important;
 h1 {
     margin-bottom: 0px !important;
 }
+=======
+body {
+    background: linear-gradient(to bottom, #339933 0%, #000099 100%);
+    height: 100%;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 35px;
+  }
+
+  
+
+  h1 {
+    color: rgb(190, 123, 22);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style:italic;
+    padding-bottom: 20px;
+    font-size: 30px;
+    
+   }
+
+  html {
+    height: 100%;
+  }
+
+  p {
+    color: blanchedalmond;
+  }
+
+  .navbar-collapse {
+    flex-grow: 5;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    clear: both;
+  }
+
+  
+  
+  
+  
+>>>>>>> Stashed changes
