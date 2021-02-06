@@ -27,7 +27,7 @@ function eventName (eventId){
         return response.json();
     }).then(function (data) {
         console.log(data);
-for (var = 0; i < data.length; i++)
+for (var i = 0; i < data.length; i++)
         {
         var eventName = document.createElement("h2");
         var eventDate = document.createElement("h5");
