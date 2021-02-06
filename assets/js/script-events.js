@@ -1,6 +1,6 @@
 
-var apiKey = "AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA";
-var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=AXOMxmsvD7ZvGtAeXwRTcRXfQTgygigA?per_page=10";
+var apiKey = "HdUpfRdxPBo83eRtcVM59jw7R5KhxSeq";
+var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=HdUpfRdxPBo83eRtcVM59jw7R5KhxSeq&per_page=10";
 var eventName;
 var eventDate = "mm, dd, yyyy";
 var eventTime = "hh, mm"
@@ -8,10 +8,11 @@ var eventDescription;
 var eventImg;
 var eventPrice;
 var eventId;
+var eventsFieldEl = $('#events-field');
 
-eventFieldEl.style.display = "none";
+eventsFieldEl.css("display", "none");
 
-$("event-field")
+$("events-field")
 // function searchForEvents (eventId);
 
 // fetch(requestCityEventsUrl), {
