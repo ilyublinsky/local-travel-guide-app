@@ -8,17 +8,19 @@ var eventImg;
 var eventPrice;
 var eventId;
 
-$("event-field")
-function searchForEvents (eventId);
+eventFieldEl.style.display = "none";
 
-fetch(requestCityEventsUrl), {
-    .then(function(response) {
-    return response.json(; (
-    .then(function ())
-        ))
-    }
-}
-function eventName (){
+$("event-field")
+// function searchForEvents (eventId);
+
+// fetch(requestCityEventsUrl), {
+//     .then(function(response) {
+//     return response.json(; (
+//     .then(function ())
+//         ))
+//     }
+// }
+function eventName (eventId){
     fetch (requestCityEventsUrl)
     .then(function (response) {
         return response.json();
