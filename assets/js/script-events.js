@@ -1,6 +1,6 @@
 
-var apiKey = "HdUpfRdxPBo83eRtcVM59jw7R5KhxSeq";
-var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=HdUpfRdxPBo83eRtcVM59jw7R5KhxSeq&per_page=10";
+var apiKey = "&apikey=HdUpfRdxPBo83eRtcVM59jw7R5KhxSeq&per_page=10";
+var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v2/events.json?city=";
 var eventName;
 var eventDate = "mm, dd, yyyy";
 var eventTime = "hh, mm"
@@ -9,50 +9,64 @@ var eventImg;
 var eventPrice;
 var eventId;
 var eventsFieldEl = $('#events-field');
+var userContainer = $("#event-list");
+var listEventItem = $("li");
 
-eventsFieldEl.css("display", "none");
+//This function populates and displays the data on the browser.
+function eventResults (displayEvents) {
+    for (var i = 0; i < displayEvents.length; i++){
+        
+    var eventsField = $("<div>").addClass("card restaurant-field has-background-light");
+    var eventMainSection = $("<section>").addClass("columns card-content");
+    var eventImg = $("<figure>").addClass("column");
+    // If url is null, then we display an img placeholder.
+    if (displayEvents[i].images[0].url === "") {
+        var imgEvent = $("<img>").attr({ src: "assets/images/cat-placeholder.png" });
+    } else {
+        var imgEvent = $("<img>").attr({ src: displayEvents[i].images[0].url, alt: displayEvents[i].images[0].url });
+    }
+    var venue = $("<figcaption>").text(displayEvents[i]._embedded.venues.name);
+    var eventNameSection =  $("<div>").addClass("column media-content");
+    var eventName = $("<p>").addClass("title is-3").text(displayEvents[i].name);
 
-$("events-field")
-// function searchForEvents (eventId);
-
-// fetch(requestCityEventsUrl), {
-//     .then(function(response) {
-//     return response.json(; (
-//     .then(function ())
-//         ))
-//     }
-// }
-function eventName (eventId){
-    fetch (requestCityEventsUrl)
+    $("#events-field").append(eventsField);
+        eventsField.append(eventMainSection);
+        eventMainSection.append(eventImg, eventNameSection);
+        eventImg.append(imgEvent, venue);
+        eventNameSection.append(eventName);
+    }
+}
+// Grabbing info from API
+function eventApiCall (cityName){
+    fetch (requestCityEventsUrl + cityName + apiKey)
     .then(function (response) {
         return response.json();
     }).then(function (data) {
-        console.log(data);
-for (var i = 0; i < data.length; i++)
+        console.log(data._embedded.events);
+        var displayEvents = data._embedded.events
+for (var i = 0; i < data._embedded.events.length; i++)
         {
-        var eventName = document.createElement("h2");
-        var eventDate = document.createElement("h5");
-        var eventTime = document.createElement("h6");
-        var eventDescription = document.createElement("p");
-        var eventImg = document.createElement("placeholder");
-        
-        eventName.textContent = date[i].embedded.events.name;
-        eventDate.textContent = date[i].embedded.events.initialStartDate.localDate;
-        eventTime.textContent = date[i].embedded.events.initialStartDate.localTime;
-        eventDescription.textContent = date[i].embedded.events.info;
-        eventImg = date[i].embedded.events.images;
+        // Populating the events
+        var eventName = data._embedded.events[i].name;
         }
+        eventResults (displayEvents);
     })
 }
+
 
 $("#search-button-event").on("click", function(event){
     event.preventDefault();
     console.log('Hello World')
 
     var eventNameInput = $("#search-input-city").val();
-    var eventDateSelect = $("search-input-event").val();
+    var eventDateSelect = $("#search-input-event").val();
         console.log(eventNameInput);
 
 
-    eventName ();
+    eventApiCall (eventNameInput);
 });
+
+// Need to be able to pull every event name (one variable)
+// Make a function to populate the list (append)
+// Ensure that the loop actually stops at 10 per page (console log)
+// 
