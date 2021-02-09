@@ -51,10 +51,22 @@ margin:50px;
 font-weight:bold;
 }
 
+/* Develop-Victor */
+/*|||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* .control input  {
+    
+    max-width: 75%;
+}
+
+select, option {
+    width: 200% !important;
+    max-width: 200% !important;
+/* } */
+
 .restaurant-field {
 margin-bottom: 20px;
 
-}
+} 
 
 figure {
     border: thin #c0c0c0 solid;
@@ -80,3 +92,26 @@ figcaption {
     text-align: center;
 }
 
+.subtitle {
+  margin-bottom: 0.5rem !important;
+}
+
+@media screen and (max-width: 420px) {
+
+    .columns.is-mobile {
+    display: block !important;
+}
+
+    .mobile-responsive {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+    }
+
+    .mobile-center-text {
+        text-align: center;
+    }
+}
+
+
+/*|||||||||||||||||||||||||||||||||||||||||||||||||||||| */
