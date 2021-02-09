@@ -16,7 +16,8 @@ function displayRestaurants(restaurantsList) {
     // $("#restaurants-found").empty();
 
     for (var i = 0; i < data.length; i++) {
-        var restaurantField = $("<div>").addClass("card restaurant-field has-background-light");
+        var restaurantField = $("<div>").attr({ id: i, class: "card restaurant-field has-background-light" })
+        // var restaurantField = $("<div>").addClass("card restaurant-field has-background-light");
         var restaurantMainSection = $("<section>").addClass("columns is-mobile card-content");
         var figureBox = $("<figure>").addClass("column mobile-responsive");
         if (data[i].restaurant.featured_image === "") {
@@ -66,7 +67,26 @@ function displayRestaurants(restaurantsList) {
 
         var highlightsData = $("<p>").text(data[i].restaurant.highlights[i]);
 
-        var saveButton
+
+
+        var buttonsSection = $("<section>").addClass("has-text-centered is-mobile");
+        var directionsButton = $("<button>").addClass("directions-button button");
+        var directionButtonIconSpan = $("<span>").addClass("icon is-small");
+        var directionButtonIcon = $("<i>").addClass("fas fa-location-arrow");
+        var directionButtonSpanText = $("<span>").text("Directions");
+
+        var callButton = $("<button>").addClass("directions-button button");
+        var callButtonIconSpan = $("<span>").addClass("icon is-small");
+        var callButtonIcon = $("<i>").addClass("fas fa-phone-alt");
+        var callButtonSpanText = $("<span>").text("Call");
+
+
+        var saveButton = $("<button>").addClass("save-button button is-success");
+        // var buttonIconSpan = ("<span").addClass("icon is-small");
+        // var buttonIcon = ("<i>").addClass("fas fa-check");
+        var buttonSpanText = $("<span>").text("Save");
+
+
 
 
         $("#restaurants-found").append(restaurantField);
@@ -139,13 +159,28 @@ function displayRestaurants(restaurantsList) {
                 highlightsColumn.append(highlightsData.clone());
             }
         }
+        restaurantField.append(buttonsSection);
+        buttonsSection.append(callButton, directionsButton.append(directionButtonSpanText), saveButton.append(buttonSpanText));
+        callButton.append(callButtonIconSpan.append(callButtonIcon), callButtonSpanText);
+        directionsButton.append(directionButtonIconSpan.append(directionButtonIcon))
+
+       
     }
+    $("#search-button-rest").removeClass("is-loading");
+    
+    $(".save-button").on("click", function () {
+        var savedArray = $("")
+        var restaurantData =
+            localStorage.setItem(savedArray, restaurantData)
+    });
+
+    
 }
 
 function displayCityOnlyRestaurants(restaurantsList, cuisineId, establishmentId) {
     $("#restaurants-found").empty();
     var notification = $("<div>").addClass("notification is-primary has-text-centered");
-    var notFound = $("<p>").text("No restaurants found with " + cuisineName + " cuisine" + " and " + establishmentName);
+    var notFound = $("<p>").text("No restaurants found with " + cuisineName + " cuisine" + " and " + establishmentName + " establishment");
     var checkAvailable = $("<p>").text("Check some restaurants around instead");
 
     $("#restaurants-found").append(notification);
@@ -239,7 +274,7 @@ function searchDesiredRestaurants(cityId, cuisineId, establishmentId) {
         console.log(data.results_found + " - Results")
         // in case there is no results found with selected parameters:
         if (data.results_found === 0) {
-            searchByCityRandomRestaurants(cityId, cuisineId, establishmentId);
+            searchRestaurantsByCityEsttablishment(cityId, cuisineId, establishmentId);
         } else {
             restaurantsList = data.restaurants;
             $("#restaurants-found").empty();
@@ -265,12 +300,12 @@ function searchEstablishmentId(cityId) {
                 establishmentId = data.establishments[i].establishment.id;
             }
         }
-        if (establishmentId == null) {
-            searchRestaurantsByCityCuisine(cityId, cuisineId, establishmentId);
-        } else if (xCuisineId == null) {
-            searchRestaurantsByCityEsttablishment(cityId, cuisineId, establishmentId);
-        } else if (xCuisineId == null && establishmentId == null) {
-            searchByCityRandomRestaurants(cityId, cuisineId, establishmentId);
+        if (isNaN(xCuisineId) && isNaN(establishmentId)) {
+            searchByCityRandomRestaurants(cityId, xCuisineId, establishmentId);
+        } else if (isNaN(xCuisineId)) {
+            searchRestaurantsByCityEsttablishment(cityId, xCuisineId, establishmentId);
+        } else if (isNaN(establishmentId)) {
+            searchRestaurantsByCityCuisine(cityId, xCuisineId, establishmentId);
         } else {
             // main function for api call with selected parameters
             searchDesiredRestaurants(cityId, xCuisineId, establishmentId);
@@ -358,4 +393,6 @@ $("#search-button-rest").on("click", function (event) {
     console.log(cuisineNameInput);
 
     searchCityId(cityName);
+    $("#search-button-rest").addClass("is-loading");
 });
+

@@ -96,6 +96,14 @@ figcaption {
   margin-bottom: 0.5rem !important;
 }
 
+.card-content {
+padding: 0.25rem 1rem !important;
+}
+
+.save-button {
+  margin-bottom: 0.75rem;
+}
+
 @media screen and (max-width: 420px) {
 
     .columns.is-mobile {
