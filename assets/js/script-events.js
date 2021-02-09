@@ -66,7 +66,9 @@ $("#search-button-event").on("click", function(event){
     eventApiCall (eventNameInput);
 });
 
+
 // Need to be able to pull every event name (one variable)
 // Make a function to populate the list (append)
 // Ensure that the loop actually stops at 10 per page (console log)
 // 
+
