@@ -66,7 +66,7 @@ function displayRestaurants(restaurantsList) {
 
         var highlightsData = $("<p>").text(data[i].restaurant.highlights[i]);
 
-
+        var saveButton
 
 
         $("#restaurants-found").append(restaurantField);
@@ -267,9 +267,9 @@ function searchEstablishmentId(cityId) {
         }
         if (establishmentId == null) {
             searchRestaurantsByCityCuisine(cityId, cuisineId, establishmentId);
-        } else if (cuisineId == null) {
+        } else if (xCuisineId == null) {
             searchRestaurantsByCityEsttablishment(cityId, cuisineId, establishmentId);
-        } else if (cuisineId == null && establishmentId == null) {
+        } else if (xCuisineId == null && establishmentId == null) {
             searchByCityRandomRestaurants(cityId, cuisineId, establishmentId);
         } else {
             // main function for api call with selected parameters
