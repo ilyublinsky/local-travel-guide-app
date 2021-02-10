@@ -10,6 +10,8 @@ var requestHeader = new Headers({
     'user-key': apiKey
 });
 
+
+
 function displayRestaurants(restaurantsList) {
     console.log(restaurantsList);
     var data = restaurantsList;
@@ -169,11 +171,9 @@ function displayRestaurants(restaurantsList) {
     $("#search-button-rest").removeClass("is-loading");
 
     // $(".save-button").on("click", function () {
-    //     console.log($(this).parent().parent())
-
+    //     // var searchedCities = []
+    //         localStorage.setItem(savedArray, restaurantData)
     // });
-
-
 }
 
 function displayCityOnlyRestaurants(restaurantsList, cuisineId, establishmentId) {
@@ -313,7 +313,6 @@ function searchEstablishmentId(cityId) {
 }
 
 function searchCuisinesId(cityId) {
-    $("#search-button-rest").addClass("is-loading");
     // API Url for getCuisine
     var requestCuisineUrl = `https://developers.zomato.com/api/v2.1/cuisines?city_id=${cityId}`;
 
@@ -360,10 +359,13 @@ function searchCityId(cityName) {
         // Calling other 2 API Calls knowing the cityId
         searchCuisinesId(cityId);
     });
+
 }
+
 //  Jquerry onclick grabs cityName, establishmentName, cuisineNameInput and
 // starts the chain of functions - searchCityId()...
 $("#search-button-rest").on("click", function (event) {
+
     event.preventDefault();
     // Used both - Jquerry and Vanilla JS(DOM commands)
     var cityNameEl = document.querySelector("#search-input-city");
@@ -372,11 +374,38 @@ $("#search-button-rest").on("click", function (event) {
     var cuisineNameInput = $("#cuisine-option").val();
     cuisineName = cuisineNameInput
     establishmentName = $("#establishment-option").val();
+    searchedCities = JSON.parse(localStorage.getItem("searchedCities"));
+    if (searchedCities == null) {
+        searchedCities = [];
+    }
+    searchedCities.push(cityName);
+    localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
+    localStorage.setItem("searchedCity", cityName)
+
     console.log(cityName);
     console.log(establishmentName);
     console.log(cuisineNameInput);
 
     searchCityId(cityName);
-    localStorage.setItem("citySearched", cityName)
+    $("#search-button-rest").addClass("is-loading");
+    renderButtons();
 });
 
+
+function renderButtons() {
+
+    searchedCities = JSON.parse(localStorage.getItem("searchedCities"));
+    var x = 0;
+    for (var i = searchedCities.length - 1; i >= 0; i--) {
+        x++
+        // cities[i]
+        // var button = $("<button>").text(cities[i]);
+        console.log(searchedCities[i])
+        if (x > 5) {
+            break
+        }
+    }
+
+
+
+}
