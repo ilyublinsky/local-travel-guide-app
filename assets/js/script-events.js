@@ -28,12 +28,20 @@ function eventResults (displayEvents) {
     var venue = $("<figcaption>").text(displayEvents[i]._embedded.venues.name);
     var eventNameSection =  $("<div>").addClass("column media-content");
     var eventName = $("<p>").addClass("title is-3").text(displayEvents[i].name);
+    var eventDate = $("<p>").addClass("title is-4").text(displayEvents[i].dates.initialStartDate.localDate);
+    var eventDateAndTime = $("<p>").addClass("title is-4").text(displayEvents[i].start);
+    var eventPriceRangeMin = $("<p>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].min + " - ");
+    var eventPriceRangeMax = $("<span>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].max + " ");
+    var eventPriceRangeCurrency = $("<span>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].currency);
 
     $("#events-field").append(eventsField);
         eventsField.append(eventMainSection);
         eventMainSection.append(eventImg, eventNameSection);
         eventImg.append(imgEvent, venue);
         eventNameSection.append(eventName);
+        eventName.append(eventDateAndTime);
+        eventNameSection.append(eventPriceRangeMin.append(eventPriceRangeMax, eventPriceRangeCurrency));
+
     }
 }
 // Grabbing info from API
