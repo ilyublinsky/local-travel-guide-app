@@ -9,21 +9,27 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/event.css">
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
 </head>
 
 <body class="has-background-dark">
-    <nav class="navbar content is-primary" aria-label="main navigation">
+    <nav class="navbar content is-black" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="index.html">
-                <h1 class="has-text-light">Traveler's Insider</h1>
+                <h1 class="has-text-grey-lighter">Traveler's Insider!</h1>
+                <a class="btn-floating btn-li mx-1" href="https://ilyublinsky.github.io/group-project/">
+                    <i class="fab fa-github"></i>
+                </a>
             </a>
         </div>
         <div class="navbar-end">
             <div class="navbar-item">
-                <a class="navbar-item has-text-light link" href="restaurants.html">Search Restaurants</a>
-                <a class="navbar-item has-text-light link" href="events.html">Search Events</a>
+                <a class="button is-success is-rounded" href="restaurants.html">Search Restaurants</a>
+                <a class="button is-success is-rounded" href="events.html">Search Events</a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Saved</a>
                     <div class="navbar-dropdown">
@@ -72,51 +78,12 @@
                     <div class="control">
                         <input id="search-input-city" class="input" type="text" placeholder="Ex: Seattle">
                     </div>
-                    <!-- <div class="field">
-                        <label class="label">Food establishments</label>
-                        <div class="control">
-                            <div class="select">
-                                <select id="establishment-option">
-                                    <option value="" disabled selected>Select an establishments</option>
-                                    <option value="Café">Cafe</option>
-                                    <option value="Casual Dining">Casual Dining</option>
-                                    <option value="Diner">Diner</option>
-                                    <option value="Lounge">Lounge</option>
-                                    <option value="Pizzeria">Pizzeria</option>
-                                    <option value="Quick Bites">Quick Bites</option>
-                                    <option value="Sandwich Shop">Sandwich Shop</option>
-                                    <option value="Wine Bar">Wine Bar</option>
-                                    <option value="Pub">Pub</option>
-                                    <option value="Fast Food">Fast Food</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="field">
-                        <label class="label">Cuisine</label>
-                        <div class="control">
-                            <div class="select">
-                                <select id="cuisine-option">
-                                    <option value="" disabled selected>Select a cuisine... ex: American</option>
-                                    <option value="American">American</option>
-                                    <option value="European">European</option>
-                                    <option value="Eastern Europe">Eastern European</option>
-                                    <option value="Indian">Indian</option>
-                                    <option value="Latin American">Latin American</option>
-                                    <option value="Asian">Asian</option>
-                                    <option value="Seafood">Seafood</option>
-                                    <option value="Bakery">Bakery</option>
-                                    <option value="Grill">Grill</option>
-                                    <option value="Salad">Salad</option>
-                                    <option value="Desserts">Desserts</option>
-                                </select>
-                            </div>
-                        </div> 
-                    </div> -->
+                   
                     <button id="search-button-event" class="button is-primary">Search</button>
                 </div>
             </form>
             <div id="events-field" class="column is-8">
+
 
             </div>
     </div>
