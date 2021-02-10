@@ -1,6 +1,31 @@
-.box {
-    background: linear-gradient(to bottom, #DCDCDC 0%, #ADD8E6 100%);
+body {
+    background: linear-gradient(to bottom, #339933 0%, #000099 100%);
+    height: auto;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background-size: auto;
+    width: auto;
+    background-size: auto;
+    width: auto;
+    margin: auto;
+    min-height: 1200px;
 }
+
+.container1 {
+    background: linear-gradient(to bottom, #DCDCDC 0%, #ADD8E6 100%);       
+}
+
+.margin {
+    background: linear-gradient(to bottom, #DCDCDC 0%, #ADD8E6 100%);  
+    margin-bottom: 10px;
+}
+
+figcaption {
+    background: linear-gradient(to bottom, #DCDCDC 0%, #ADD8E6 100%);
+    color: rgb(31, 7, 7);
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+  }
 
 .footer {
     background-color: black !important;
