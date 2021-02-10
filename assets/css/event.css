@@ -1,0 +1,12 @@
+.box {
+    background: linear-gradient(to bottom, #DCDCDC 0%, #ADD8E6 100%);
+}
+
+.footer {
+    background-color: black !important;
+}
+
+.footer1 {
+    color: blanchedalmond;
+    font-size: 25PX;
+}
