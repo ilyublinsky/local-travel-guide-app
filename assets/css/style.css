@@ -71,7 +71,7 @@ select, option {
 /* } */
 
 .restaurant-field {
-margin-bottom: 20px;
+margin: 20px;
 
 } 
 
@@ -84,9 +84,6 @@ figure {
     margin: auto;
     
 }
-
-
-
 
 figcaption {
     background-color: #222;
@@ -108,6 +105,10 @@ padding: 0.25rem 1rem !important;
   margin-bottom: 0.75rem;
 }
 
+form {
+  margin: 20px;
+}
+
 @media screen and (max-width: 420px) {
 
     .columns.is-mobile {
@@ -123,6 +124,7 @@ padding: 0.25rem 1rem !important;
     .mobile-center-text {
         text-align: center;
     }
+
 }
 
 
