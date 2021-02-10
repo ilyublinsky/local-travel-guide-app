@@ -406,6 +406,4 @@ function renderButtons() {
         }
     }
 
-    
-
 }
