@@ -164,17 +164,16 @@ function displayRestaurants(restaurantsList) {
         callButton.append(callButtonIconSpan.append(callButtonIcon), callButtonSpanText);
         directionsButton.append(directionButtonIconSpan.append(directionButtonIcon))
 
-       
+
     }
     $("#search-button-rest").removeClass("is-loading");
-    
-    $(".save-button").on("click", function () {
-        var savedArray = $("")
-        var restaurantData =
-            localStorage.setItem(savedArray, restaurantData)
-    });
 
-    
+    // $(".save-button").on("click", function () {
+    //     console.log($(this).parent().parent())
+
+    // });
+
+
 }
 
 function displayCityOnlyRestaurants(restaurantsList, cuisineId, establishmentId) {
@@ -314,6 +313,7 @@ function searchEstablishmentId(cityId) {
 }
 
 function searchCuisinesId(cityId) {
+    $("#search-button-rest").addClass("is-loading");
     // API Url for getCuisine
     var requestCuisineUrl = `https://developers.zomato.com/api/v2.1/cuisines?city_id=${cityId}`;
 
@@ -372,27 +372,11 @@ $("#search-button-rest").on("click", function (event) {
     var cuisineNameInput = $("#cuisine-option").val();
     cuisineName = cuisineNameInput
     establishmentName = $("#establishment-option").val();
-
-    // if (establishmentName == null) {
-    //     var notificationToSelect = $("<div>").addClass("notification is-primary has-text-centered");
-    //     var select = $("<p>").text("No establishment selected");
-    //     var chooseOne = $("<p>").text("Choose an establishment");
-
-    //     $("#restaurants-found").append(notificationToSelect);
-    //     notificationToSelect.append(select, chooseOne);
-    // } else if (cuisineNameInput == null) {
-    //     var notificationToSelect = $("<div>").addClass("notification is-primary has-text-centered");
-    //     var select = $("<p>").text("No cuisine selected");
-    //     var chooseOne = $("<p>").text("Choose a cuisine");
-
-    //     $("#restaurants-found").append(notificationToSelect);
-    //     notificationToSelect.append(select, chooseOne);
-    // }
     console.log(cityName);
     console.log(establishmentName);
     console.log(cuisineNameInput);
 
     searchCityId(cityName);
-    $("#search-button-rest").addClass("is-loading");
+    localStorage.setItem("citySearched", cityName)
 });
 
