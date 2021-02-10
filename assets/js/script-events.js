@@ -1,4 +1,3 @@
-
 var apiKey = "&apikey=HdUpfRdxPBo83eRtcVM59jw7R5KhxSeq&per_page=10";
 var requestCityEventsUrl = "https://app.ticketmaster.com/discovery/v2/events.json?city=";
 var eventName;
@@ -74,9 +73,7 @@ $("#search-button-event").on("click", function(event){
     eventApiCall (eventNameInput);
 });
 
-
 // Need to be able to pull every event name (one variable)
 // Make a function to populate the list (append)
 // Ensure that the loop actually stops at 10 per page (console log)
 // 
-
