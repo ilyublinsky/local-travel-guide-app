@@ -15,7 +15,7 @@ var listEventItem = $("li");
 function eventResults (displayEvents) {
     for (var i = 0; i < displayEvents.length; i++){
         
-    var eventsField = $("<div>").addClass("card restaurant-field has-background-light");
+    var eventsField = $("<div>").addClass("card event-field has-background-light");
     var eventMainSection = $("<section>").addClass("columns card-content");
     var eventImg = $("<figure>").addClass("column");
     // If url is null, then we display an img placeholder.
@@ -27,11 +27,17 @@ function eventResults (displayEvents) {
     var venue = $("<figcaption>").text(displayEvents[i]._embedded.venues.name);
     var eventNameSection =  $("<div>").addClass("column media-content");
     var eventName = $("<p>").addClass("title is-3").text(displayEvents[i].name);
-    var eventDate = $("<p>").addClass("title is-4").text(displayEvents[i].dates.initialStartDate.localDate);
     var eventDateAndTime = $("<p>").addClass("title is-4").text(displayEvents[i].start);
     var eventPriceRangeMin = $("<p>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].min + " - ");
     var eventPriceRangeMax = $("<span>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].max + " ");
     var eventPriceRangeCurrency = $("<span>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].currency);
+    var infoColumn = $("<div>").addClass("row card-content");
+    var ticketURL = $("<a>").attr("href", displayEvents[i].url).text("Purchase your tickets!")
+    var ticketNote = $("<span>").text("PLEASE NOTE: " + displayEvents[i].pleaseNote);
+    var ticketLimit = $("<p>").text(displayEvents[i].accessibility.ticketLimit);
+    var ageRestrictions = $("<p>").text(displayEvents[i].ageRestrictions.legalAgeEnforced);
+    var accessibility = $("<p>").text(displayEvents[i]._embedded.venues[0].accessibleSeatingDetail);
+    var generalInfo = $("<p>").text(displayEvents[i]._embedded.venues[0].generalInfo);
 
     $("#events-field").append(eventsField);
         eventsField.append(eventMainSection);
@@ -40,6 +46,9 @@ function eventResults (displayEvents) {
         eventNameSection.append(eventName);
         eventName.append(eventDateAndTime);
         eventNameSection.append(eventPriceRangeMin.append(eventPriceRangeMax, eventPriceRangeCurrency));
+        eventNameSection.append(infoColumn);
+        infoColumn.append(ticketURL);
+        infoColumn.append(ticketNote.append(ticketLimit, ageRestrictions, accessibility, generalInfo));
 
     }
 }
