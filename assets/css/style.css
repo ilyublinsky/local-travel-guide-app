@@ -1,16 +1,18 @@
-
 body {
-    background: linear-gradient(to bottom, #339933 0%, #000099 100%);
-    height: 100%;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 20px;
-    line-height: 35px;
-  }
+  background: linear-gradient(to bottom, #339933 0%, #000099 100%);
+  height: auto;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  background-size:auto;
+  width: auto;
+  background-size: auto;
+  width: auto;
+  margin: auto;
+  min-height: 1200px;
+}
 
-  
-
-  h1 {
-    color: rgb(190, 123, 22);
+h1 {
+    color: rgb(12, 12, 11);
+    text-shadow: 2px 2px 8px #dbd5d5;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style:italic;
     padding-bottom: 20px;
@@ -19,11 +21,16 @@ body {
    }
 
   html {
-    height: 100%;
+    height: 100vh;
   }
 
-  .content p {
-    color: blanchedalmond;
+
+  p {
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 8px #ebebeb;
+    font-size:x-large;
+    position:relative;
+
   }
 
   .navbar-collapse {
@@ -78,10 +85,7 @@ figure {
     
 }
 
-img {
-    max-width: 220px;
-    max-height: 150px;
-}
+
 
 
 figcaption {
@@ -123,3 +127,27 @@ padding: 0.25rem 1rem !important;
 
 
 /*|||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+.navbar-dropdown {
+  color: #000099;
+  background-color: #000099;
+  background: #000099;
+}
+
+.container {
+  position: absolute;
+  min-height: 100vh;
+}
+
+.content {
+  padding-bottom: 2.5rem;    
+}
+
+.footer {
+  position:relative;
+  bottom: 0;
+  width: 100%;
+  height: 3.5rem;  
+  
+}
+
