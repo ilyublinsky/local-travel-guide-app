@@ -10,6 +10,7 @@ body {
 }
 
 h1 {
+
   color: rgb(0, 0, 0);
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: italic;
@@ -21,6 +22,40 @@ h1 {
 html {
   height: 100vh;
 }
+
+    color: rgb(12, 12, 11);
+    text-shadow: 2px 2px 8px #dbd5d5;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style:italic;
+    padding-bottom: 20px;
+    font-size: 30px;
+    
+   }
+
+  html {
+    height: 100vh;
+  }
+
+
+  p {
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 8px #ebebeb;
+    font-size:x-large;
+    position:relative;
+
+  }
+
+  .navbar-collapse {
+    flex-grow: 5;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    clear: both;
+  }
+
 
 p {
   color: rgb(0, 0, 0);
@@ -54,10 +89,22 @@ p {
   font-weight: bold;
 }
 
+/* Develop-Victor */
+/*|||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* .control input  {
+    
+    max-width: 75%;
+}
+
+select, option {
+    width: 200% !important;
+    max-width: 200% !important;
+/* } */
+
 .restaurant-field {
   margin-bottom: 20px;
 
-}
+} 
 
 figure {
 
@@ -80,6 +127,38 @@ figcaption {
   text-align: center;
 }
 
+.subtitle {
+  margin-bottom: 0.5rem !important;
+}
+
+.card-content {
+padding: 0.25rem 1rem !important;
+}
+
+.save-button {
+  margin-bottom: 0.75rem;
+}
+
+@media screen and (max-width: 420px) {
+
+    .columns.is-mobile {
+    display: block !important;
+}
+
+    .mobile-responsive {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+    }
+
+    .mobile-center-text {
+        text-align: center;
+    }
+}
+
+
+/*|||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
 .navbar-dropdown {
   color: #000099;
   background-color: #000099;
@@ -101,6 +180,7 @@ figcaption {
   position: relative;
   bottom: 0;
   width: 100%;
+
   height: 3.5rem;
 
 }
@@ -125,3 +205,4 @@ figcaption {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: italic;
 }
+
