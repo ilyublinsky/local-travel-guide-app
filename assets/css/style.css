@@ -21,7 +21,6 @@ h1 {
 html {
   height: 100vh;
 }
-
 p {
   color: rgb(0, 0, 0);
   font-size: x-large;
@@ -54,10 +53,14 @@ p {
   font-weight: bold;
 }
 
+select, option {
+    width: 200% !important;
+    max-width: 200% !important;
+}
+
 .restaurant-field {
   margin-bottom: 20px;
-
-}
+} 
 
 figure {
 
@@ -79,6 +82,38 @@ figcaption {
   padding: 3px;
   text-align: center;
 }
+
+.subtitle {
+  margin-bottom: 0.5rem !important;
+}
+
+.card-content {
+padding: 0.25rem 1rem !important;
+}
+
+.save-button {
+  margin-bottom: 0.75rem;
+}
+
+@media screen and (max-width: 420px) {
+
+    .columns.is-mobile {
+    display: block !important;
+}
+
+    .mobile-responsive {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+    }
+
+    .mobile-center-text {
+        text-align: center;
+    }
+}
+
+
+/*|||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 
 .navbar-dropdown {
   color: #000099;
