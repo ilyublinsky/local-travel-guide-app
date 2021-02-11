@@ -10,15 +10,13 @@ var requestHeader = new Headers({
     'user-key': apiKey
 });
 
-
-
 function displayRestaurants(restaurantsList) {
     console.log(restaurantsList);
     var data = restaurantsList;
     // $("#restaurants-found").empty();
 
     for (var i = 0; i < data.length; i++) {
-        var restaurantField = $("<div>").attr({ id: i, class: "card restaurant-field container2" })
+        var restaurantField = $("<div>").attr({ id: i, class: "card restaurant-field container container2" })
         // var restaurantField = $("<div>").addClass("card restaurant-field has-background-light");
         var restaurantMainSection = $("<section>").addClass("columns is-mobile card-content");
         var figureBox = $("<figure>").addClass("column mobile-responsive");
@@ -63,13 +61,7 @@ function displayRestaurants(restaurantsList) {
         var phoneNumber = $("<p>").text("Phone Number: " + data[i].restaurant.phone_numbers);
 
         var highlightsColumn = $("<div>").addClass("column");
-
-
-
-
         var highlightsData = $("<p>").text(data[i].restaurant.highlights[i]);
-
-
 
         var buttonsSection = $("<section>").addClass("has-text-centered is-mobile");
         var directionsButton = $("<button>").addClass("directions-button button");
@@ -82,14 +74,10 @@ function displayRestaurants(restaurantsList) {
         var callButtonIcon = $("<i>").addClass("fas fa-phone-alt");
         var callButtonSpanText = $("<span>").text("Call");
 
-
         var saveButton = $("<button>").addClass("save-button button is-success");
         // var buttonIconSpan = ("<span").addClass("icon is-small");
         // var buttonIcon = ("<i>").addClass("fas fa-check");
         var buttonSpanText = $("<span>").text("Save");
-
-
-
 
         $("#restaurants-found").append(restaurantField);
         restaurantField.append(restaurantMainSection);
@@ -114,11 +102,9 @@ function displayRestaurants(restaurantsList) {
             }
         }
         userRating.append(reviewsAmount);
+        restaurantField.append(restaurantDetailsSection.append(optionsColumn));
+        optionsColumn.append(cuisineData, costForTwo.append(costForTwoSpan), priceRange.append(priceRangeSpan));
 
-        restaurantField.append(restaurantDetailsSection);
-        restaurantDetailsSection.append(optionsColumn);
-        optionsColumn.append(cuisineData, costForTwo.append(costForTwoSpan), priceRange);
-        priceRange.append(priceRangeSpan);
 
         for (var j = 0; j < data[i].restaurant.price_range; j++) {
             priceRangeSpan.append(priceRangeIcon.clone());
@@ -165,10 +151,9 @@ function displayRestaurants(restaurantsList) {
         buttonsSection.append(callButton, directionsButton.append(directionButtonSpanText), saveButton.append(buttonSpanText));
         callButton.append(callButtonIconSpan.append(callButtonIcon), callButtonSpanText);
         directionsButton.append(directionButtonIconSpan.append(directionButtonIcon))
-
-
     }
     $("#search-button-rest").removeClass("is-loading");
+    $(".citybutton").removeClass("is-loading");
 
     // $(".save-button").on("click", function () {
     //     // var searchedCities = []
@@ -178,7 +163,7 @@ function displayRestaurants(restaurantsList) {
 
 function displayCityOnlyRestaurants(restaurantsList, cuisineId, establishmentId) {
     $("#restaurants-found").empty();
-    var notification = $("<div>").addClass("notification is-primary has-text-centered");
+    var notification = $("<div>").addClass("container1 notification is-primary has-text-centered");
     var notFound = $("<p>").text("No restaurants found with " + cuisineName + " cuisine" + " and " + establishmentName + " establishment");
     var checkAvailable = $("<p>").text("Check other restaurants around");
 
@@ -189,7 +174,7 @@ function displayCityOnlyRestaurants(restaurantsList, cuisineId, establishmentId)
 
 function displayEstablishmentRestaurants(restaurantsList, cuisineId, establishmentId) {
     $("#restaurants-found").empty();
-    var notification = $("<div>").addClass("notification is-primary has-text-centered");
+    var notification = $("<div>").addClass("container1 notification is-primary has-text-centered");
     var notFound = $("<p>").text("No restaurants found with " + cuisineName + " cuisine");
     var checkAvailable = $("<p>").text("Check below " + establishmentName + " restaurants");
 
@@ -201,7 +186,7 @@ function displayEstablishmentRestaurants(restaurantsList, cuisineId, establishme
 
 function displayCuisineRestaurants(restaurantsList, cuisineId, establishmentId) {
     $("#restaurants-found").empty();
-    var notification = $("<div>").addClass("notification is-primary has-text-centered");
+    var notification = $("<div>").addClass("container1 notification is-primary has-text-centered");
     var notFound = $("<p>").text("No restaurants found with " + establishmentName + " establishment" + " and " + cuisineName);
     var checkAvailable = $("<p>").text("Check below " + cuisineName + " cuisine restaurants");
 
@@ -367,6 +352,7 @@ function searchCityId(cityName) {
 $("#search-button-rest").on("click", function (event) {
 
     event.preventDefault();
+    $("#search-button-rest").addClass("is-loading");
     // Used both - Jquerry and Vanilla JS(DOM commands)
     var cityNameEl = document.querySelector("#search-input-city");
     cityName = cityNameEl.value;
@@ -377,15 +363,26 @@ $("#search-button-rest").on("click", function (event) {
     console.log(cityName);
     console.log(establishmentName);
     console.log(cuisineNameInput);
-    searchCityId(cityName);
-    $("#search-button-rest").addClass("is-loading");
+
+    if (cityName === "") {
+        noCityEntered();
+    } else {
+        searchCityId(cityName);
+    }
+
+
 
     // Local Storage to store persistent data
     searchedCities = JSON.parse(localStorage.getItem("searchedCities"));
     if (searchedCities == null) {
         searchedCities = [];
+    } else if (searchedCities === "") {
+        noCityEntered();
     }
-    if (searchedCities.includes(cityName)) {
+    if (cityName === "") {
+        $("#search-button-rest").removeClass("is-loading");
+        noCityEntered();
+    } else if (searchedCities.includes(cityName)) {
         localStorage.setItem("searchedCity", cityName)
         renderButtons(cityName)
     } else {
@@ -397,21 +394,24 @@ $("#search-button-rest").on("click", function (event) {
     }
 });
 
+function noCityEntered() {
+    $("#restaurants-found").empty();
+    var notification = $("<div>").addClass("container1 notification is-primary has-text-centered");
+    var notFound = $("<p>").text("Enter a city/locatin in order to search for restaurants");
+    $("#restaurants-found").append(notification);
+    notification.append(notFound);
+}
+
+// render buttons
 function renderButtons(cityName) {
     $("#searched-cities").empty();
     searchedCities = JSON.parse(localStorage.getItem("searchedCities"));
     var x = 0;
-    // if (searchedCities.includes(cityName)) {
-    //     var lisItemButton = $("<li>");
-    //     var citybutton = $("<button>").addClass("button is-info is-outlined").text(cityName);
-    //     $("#searched-cities").append(lisItemButton.append(citybutton));
-    // }
-
     // dynamically append the buttons
     for (var i = searchedCities.length - 1; i >= 0; i--) {
         x++
         var lisItemButton = $("<li>");
-        var citybutton = $("<button>").attr({ data: searchedCities[i], class: "button is-info is-outlined" }).text(searchedCities[i]);
+        var citybutton = $("<button>").attr({ data: searchedCities[i], class: "citybutton button is-info is-outlined" }).text(searchedCities[i]);
         // var citybutton = $("<button>").addClass("button is-info is-outlined").text(searchedCities[i]);
         $("#searched-cities").append(lisItemButton.append(citybutton));
         console.log(searchedCities[i])
@@ -421,6 +421,7 @@ function renderButtons(cityName) {
     }
 }
 
+// append buttons on document ready
 $(document).ready(function () {
     if (localStorage.searchedCities == null) {
         return
@@ -428,3 +429,10 @@ $(document).ready(function () {
         renderButtons();
     }
 })
+
+// serach for restaurants onclick searchedcity button
+$(document).on("click", ".citybutton", function () {
+    $(this).addClass("is-loading");
+    var cityName = $(this).attr("data")
+    searchCityId(cityName);
+});
