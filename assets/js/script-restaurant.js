@@ -18,7 +18,7 @@ function displayRestaurants(restaurantsList) {
     // $("#restaurants-found").empty();
 
     for (var i = 0; i < data.length; i++) {
-        var restaurantField = $("<div>").attr({ id: i, class: "card restaurant-field has-background-light" })
+        var restaurantField = $("<div>").attr({ id: i, class: "card restaurant-field container2" })
         // var restaurantField = $("<div>").addClass("card restaurant-field has-background-light");
         var restaurantMainSection = $("<section>").addClass("columns is-mobile card-content");
         var figureBox = $("<figure>").addClass("column mobile-responsive");
@@ -180,7 +180,7 @@ function displayCityOnlyRestaurants(restaurantsList, cuisineId, establishmentId)
     $("#restaurants-found").empty();
     var notification = $("<div>").addClass("notification is-primary has-text-centered");
     var notFound = $("<p>").text("No restaurants found with " + cuisineName + " cuisine" + " and " + establishmentName + " establishment");
-    var checkAvailable = $("<p>").text("Check some restaurants around instead");
+    var checkAvailable = $("<p>").text("Check other restaurants around");
 
     $("#restaurants-found").append(notification);
     notification.append(notFound, checkAvailable);
@@ -374,38 +374,57 @@ $("#search-button-rest").on("click", function (event) {
     var cuisineNameInput = $("#cuisine-option").val();
     cuisineName = cuisineNameInput
     establishmentName = $("#establishment-option").val();
+    console.log(cityName);
+    console.log(establishmentName);
+    console.log(cuisineNameInput);
+    searchCityId(cityName);
+    $("#search-button-rest").addClass("is-loading");
+
+    // Local Storage to store persistent data
     searchedCities = JSON.parse(localStorage.getItem("searchedCities"));
     if (searchedCities == null) {
         searchedCities = [];
     }
-    searchedCities.push(cityName);
-    localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
-    localStorage.setItem("searchedCity", cityName)
-
-    console.log(cityName);
-    console.log(establishmentName);
-    console.log(cuisineNameInput);
-
-    searchCityId(cityName);
-    $("#search-button-rest").addClass("is-loading");
-    renderButtons();
+    if (searchedCities.includes(cityName)) {
+        localStorage.setItem("searchedCity", cityName)
+        renderButtons(cityName)
+    } else {
+        // if array doesn't include the new input push the cityName in the array
+        searchedCities.push(cityName);
+        localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
+        localStorage.setItem("searchedCity", cityName)
+        renderButtons();
+    }
 });
 
-
-function renderButtons() {
-
+function renderButtons(cityName) {
+    $("#searched-cities").empty();
     searchedCities = JSON.parse(localStorage.getItem("searchedCities"));
     var x = 0;
+    // if (searchedCities.includes(cityName)) {
+    //     var lisItemButton = $("<li>");
+    //     var citybutton = $("<button>").addClass("button is-info is-outlined").text(cityName);
+    //     $("#searched-cities").append(lisItemButton.append(citybutton));
+    // }
+
+    // dynamically append the buttons
     for (var i = searchedCities.length - 1; i >= 0; i--) {
         x++
-        // cities[i]
-        // var button = $("<button>").text(cities[i]);
+        var lisItemButton = $("<li>");
+        var citybutton = $("<button>").attr({ data: searchedCities[i], class: "button is-info is-outlined" }).text(searchedCities[i]);
+        // var citybutton = $("<button>").addClass("button is-info is-outlined").text(searchedCities[i]);
+        $("#searched-cities").append(lisItemButton.append(citybutton));
         console.log(searchedCities[i])
-        if (x > 5) {
+        if (x > 4) {
             break
         }
     }
-
-
-
 }
+
+$(document).ready(function () {
+    if (localStorage.searchedCities == null) {
+        return
+    } else {
+        renderButtons();
+    }
+})

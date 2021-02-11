@@ -10,7 +10,6 @@ body {
 }
 
 h1 {
-
   color: rgb(0, 0, 0);
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: italic;
@@ -22,40 +21,6 @@ h1 {
 html {
   height: 100vh;
 }
-
-    color: rgb(12, 12, 11);
-    text-shadow: 2px 2px 8px #dbd5d5;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-style:italic;
-    padding-bottom: 20px;
-    font-size: 30px;
-    
-   }
-
-  html {
-    height: 100vh;
-  }
-
-
-  p {
-    color: rgb(0, 0, 0);
-    text-shadow: 2px 2px 8px #ebebeb;
-    font-size:x-large;
-    position:relative;
-
-  }
-
-  .navbar-collapse {
-    flex-grow: 5;
-  }
-  
-  .container {
-    width: 100%;
-    max-width: 1240px;
-    margin: 0 auto;
-    clear: both;
-  }
-
 
 p {
   color: rgb(0, 0, 0);
@@ -102,29 +67,26 @@ select, option {
 /* } */
 
 .restaurant-field {
-  margin-bottom: 20px;
-
+padding: 30px;
+margin-bottom: 20px;
 } 
 
 figure {
-
-  display: flex;
-  flex-flow: column;
-  padding: 5px;
-  max-width: 220px;
-  margin: auto;
-
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 220px;
+    margin: auto;
+    
 }
 
-
-
-
 figcaption {
-  background-color: rgb(255, 255, 255);
-  color: #fff;
-  font: italic smaller sans-serif;
-  padding: 3px;
-  text-align: center;
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
 }
 
 .subtitle {
@@ -156,9 +118,7 @@ padding: 0.25rem 1rem !important;
     }
 }
 
-
 /*|||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-
 .navbar-dropdown {
   color: #000099;
   background-color: #000099;
@@ -180,7 +140,6 @@ padding: 0.25rem 1rem !important;
   position: relative;
   bottom: 0;
   width: 100%;
-
   height: 3.5rem;
 
 }
