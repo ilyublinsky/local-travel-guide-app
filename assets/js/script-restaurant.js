@@ -380,6 +380,7 @@ $("#search-button-rest").on("click", function (event) {
     searchCityId(cityName);
     $("#search-button-rest").addClass("is-loading");
 
+    // Local Storage to store persistent data
     searchedCities = JSON.parse(localStorage.getItem("searchedCities"));
     if (searchedCities == null) {
         searchedCities = [];
@@ -388,13 +389,13 @@ $("#search-button-rest").on("click", function (event) {
         localStorage.setItem("searchedCity", cityName)
         renderButtons(cityName)
     } else {
+        // if array doesn't include the new input push the cityName in the array
         searchedCities.push(cityName);
         localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
         localStorage.setItem("searchedCity", cityName)
         renderButtons();
     }
 });
-
 
 function renderButtons(cityName) {
     $("#searched-cities").empty();
@@ -405,10 +406,13 @@ function renderButtons(cityName) {
     //     var citybutton = $("<button>").addClass("button is-info is-outlined").text(cityName);
     //     $("#searched-cities").append(lisItemButton.append(citybutton));
     // }
+
+    // dynamically append the buttons
     for (var i = searchedCities.length - 1; i >= 0; i--) {
         x++
         var lisItemButton = $("<li>");
-        var citybutton = $("<button>").addClass("button is-info is-outlined").text(searchedCities[i]);
+        var citybutton = $("<button>").attr({ data: searchedCities[i], class: "button is-info is-outlined" }).text(searchedCities[i]);
+        // var citybutton = $("<button>").addClass("button is-info is-outlined").text(searchedCities[i]);
         $("#searched-cities").append(lisItemButton.append(citybutton));
         console.log(searchedCities[i])
         if (x > 4) {
