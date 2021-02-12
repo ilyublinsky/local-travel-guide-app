@@ -15,6 +15,7 @@ var userContainer = $("#event-list");
 var listEventItem = $("li");
 
 //This function populates and displays the data on the browser.
+
 function eventResults (displayEvents) {
     $("#events-field").empty();
     for (var i = 0; i < displayEvents.length; i++){
@@ -43,7 +44,36 @@ function eventResults (displayEvents) {
     var accessibility = $("<div>").text(displayEvents[i]._embedded.venues[0].accessibleSeatingDetail);
     var generalInfo = $("<div>").text(displayEvents[i]._embedded.venues[0].generalInfo);
 
-    $("#events-field").append(eventsField);
+function eventResults(displayEvents) {
+    $("#events-field").empty();
+    for (var i = 0; i < displayEvents.length; i++) {
+
+
+        var eventsField = $("<div>").addClass("card event-field has-background-light margin");
+        var eventMainSection = $("<section>").addClass("columns card-content");
+        var eventImg = $("<figure>").addClass("column");
+        // If url is null, then we display an img placeholder.
+        if (displayEvents[i].images[0].url === "") {
+            var imgEvent = $("<img>").attr({ src: "assets/images/cat-placeholder.png" });
+        } else {
+            var imgEvent = $("<img>").attr({ src: displayEvents[i].images[0].url, alt: displayEvents[i].images[0].url });
+        }
+        var venue = $("<figcaption>").text(displayEvents[i]._embedded.venues[0].name);
+        console.log(displayEvents[i]._embedded.venues[0].name);
+        var eventNameSection = $("<div>").addClass("column media-content");
+        var eventName = $("<p>").addClass("title is-3").text(displayEvents[i].name);
+        var eventDateAndTime = $("<p>").addClass("title is-4").text(displayEvents[i].start);
+        var eventPriceRangeMin = $("<p>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].min + " - ");
+        var eventPriceRangeMax = $("<span>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].max + " ");
+        var eventPriceRangeCurrency = $("<span>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].currency);
+        var infoColumn = $("<div>").addClass("row card-content");
+        var ticketURL = $("<a>").attr("href", displayEvents[i].url).text("Purchase your tickets!")
+        var ticketNote = $("<div>").text("PLEASE NOTE: " + displayEvents[i].pleaseNote);
+        var ticketLimit = $("<div>").text("Ticket limit per purchase: " + displayEvents[i].accessibility.ticketLimit);
+        var accessibility = $("<div>").text(displayEvents[i]._embedded.venues[0].accessibleSeatingDetail);
+        var generalInfo = $("<div>").text(displayEvents[i]._embedded.venues[0].generalInfo);
+
+        $("#events-field").append(eventsField);
         eventsField.append(eventMainSection);
         eventMainSection.append(eventImg, eventNameSection);
         eventImg.append(imgEvent, venue);
@@ -57,33 +87,34 @@ function eventResults (displayEvents) {
     }
 }
 // Grabbing info from API
-function eventApiCall (cityName){
-    fetch (requestCityEventsUrl + cityName + apiKey)
-    .then(function (response) {
-        return response.json();
-    }).then(function (data) {
-        console.log(data._embedded.events);
-        var displayEvents = data._embedded.events
-for (var i = 0; i < data._embedded.events.length; i++)
-        {
-        // Populating the events
-        var eventName = data._embedded.events[i].name;
-        }
-        eventResults (displayEvents);
-    })
+function eventApiCall(cityName) {
+    fetch(requestCityEventsUrl + cityName + apiKey)
+        .then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data._embedded.events);
+            var displayEvents = data._embedded.events
+            for (var i = 0; i < data._embedded.events.length; i++) {
+                // Populating the events
+                var eventName = data._embedded.events[i].name;
+            }
+            eventResults(displayEvents);
+        })
 }
 
 
-$("#search-button-event").on("click", function(event){
+$("#search-button-event").on("click", function (event) {
     event.preventDefault();
     console.log('Hello World')
 
     var eventNameInput = $("#search-input-city").val();
     var eventDateSelect = $("#search-input-event").val();
-        console.log(eventNameInput);
+    console.log(eventNameInput);
 
 
-    eventApiCall (eventNameInput);
+    eventApiCall(eventNameInput);
+
+    
 });
 
 // Need to be able to pull every event name (one variable)
