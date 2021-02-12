@@ -36,7 +36,7 @@ function eventResults (displayEvents) {
     var eventPriceRangeMin = $("<p>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].min + " - ");
     var eventPriceRangeMax = $("<span>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].max + " ");
     var eventPriceRangeCurrency = $("<span>").addClass("subtitle is-5").text(displayEvents[i].priceRanges[0].currency);
-    var infoColumn = $("<div>").addClass("row card-content");
+    var infoColumn = $("<div>").addClass("row card-content info-font");
     var ticketURL = $("<a>").attr("href", displayEvents[i].url).text("Purchase your tickets!")
     var ticketNote = $("<div>").text("PLEASE NOTE: " + displayEvents[i].pleaseNote);
     var ticketLimit = $("<div>").text("Ticket limit per purchase: " + displayEvents[i].accessibility.ticketLimit);
@@ -77,6 +77,13 @@ for (var i = 0; i < data._embedded.events.length; i++)
 $("#search-button-event").on("click", function(event){
     event.preventDefault();
     console.log('Hello World')
+
+// Storing the cities to local storage
+
+function getCity() {
+    localStorage.setItem("event-cities", JSON.stringify(userCity));
+  }
+
 
     var eventNameInput = $("#search-input-city").val();
     var eventDateSelect = $("#search-input-event").val();
