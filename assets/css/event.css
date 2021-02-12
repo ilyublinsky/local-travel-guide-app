@@ -27,12 +27,6 @@ figcaption {
     text-align: center;
   }
 
-.info-font {
-    font-family:'Trebuchet MS';
-    font-weight: normal;
-    flex-wrap: wrap;
-}
-
 .footer {
     background-color: black !important;
 }
