@@ -10,8 +10,8 @@ body {
     min-height: 1200px;
 }
 
-.container1 {
-    background: linear-gradient(to bottom, #DCDCDC 0%, #ADD8E6 100%);       
+.content1 {
+    background: linear-gradient(to bottom, #ffffff 0%, #ADD8E6 100%);       
 }
 
 .margin {
@@ -35,3 +35,4 @@ figcaption {
     color: blanchedalmond;
     font-size: 25PX;
 }
+
