@@ -83,6 +83,8 @@ $("#search-button-event").on("click", function (event) {
 
 
     eventApiCall(eventNameInput);
+
+    
 });
 
 // Need to be able to pull every event name (one variable)
