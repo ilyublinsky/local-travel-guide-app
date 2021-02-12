@@ -51,39 +51,73 @@
 
     <main class="container is-fluid">
         <div class="columns">
-            <section class=" content box column is-10 is-offset-1">
-                <h2 class="has-text-centered">Search Events</h2>
-                -->
-
-                <form class="content box column is-4 has-background-light">
-                    <h2 class="has-text-centered">
-                        Search for Events in a city!
-                    </h2>
-                    <div class="tabs is-centered is-toggle is-toggle-rounded">
-                        <ul>
-                            <li class="is-active">
-                                <a>
-                                    <span class="icon is-small"><i class="fas fa-utensils"
-                                            aria-hidden="true"></i></span>
-                                    <span>Events</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="field">
-                        <label class="label">City</label>
-                        <div class="control">
-                            <input id="search-input-city" class="input" type="text" placeholder="Ex: Seattle">
-                        </div>
-                        <button id="search-button-event" class="button is-primary">Search</button>
-                    </div>
-                </form>
-                <div id="events-field" class="column is-8">
-
+            <form class="content box column is-4 has-background-light">
+                <h2 class="has-text-centered">
+                    Search for Events in a city!
+                </h2>
+                <div class="tabs is-centered is-toggle is-toggle-rounded">
+                    <ul>
+                        <li class="is-active">
+                            <a>
+                                <span class="icon is-small"><i class="fas fa-utensils" aria-hidden="true"></i></span>
+                                <span>Events</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+                <div class="field">
+                    <label class="label">City</label>
+                    <div class="control">
+                        <input id="search-input-city" class="input" type="text" placeholder="Ex: Seattle">
+                    </div>
+                    <!-- <div class="field">
+                        <label class="label">Food establishments</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="establishment-option">
+                                    <option value="" disabled selected>Select an establishments</option>
+                                    <option value="Café">Cafe</option>
+                                    <option value="Casual Dining">Casual Dining</option>
+                                    <option value="Diner">Diner</option>
+                                    <option value="Lounge">Lounge</option>
+                                    <option value="Pizzeria">Pizzeria</option>
+                                    <option value="Quick Bites">Quick Bites</option>
+                                    <option value="Sandwich Shop">Sandwich Shop</option>
+                                    <option value="Wine Bar">Wine Bar</option>
+                                    <option value="Pub">Pub</option>
+                                    <option value="Fast Food">Fast Food</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="field">
+                        <label class="label">Cuisine</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="cuisine-option">
+                                    <option value="" disabled selected>Select a cuisine... ex: American</option>
+                                    <option value="American">American</option>
+                                    <option value="European">European</option>
+                                    <option value="Eastern Europe">Eastern European</option>
+                                    <option value="Indian">Indian</option>
+                                    <option value="Latin American">Latin American</option>
+                                    <option value="Asian">Asian</option>
+                                    <option value="Seafood">Seafood</option>
+                                    <option value="Bakery">Bakery</option>
+                                    <option value="Grill">Grill</option>
+                                    <option value="Salad">Salad</option>
+                                    <option value="Desserts">Desserts</option>
+                                </select>
+                            </div>
+                        </div> 
+                    </div> -->
+                    <button id="search-button-event" class="button is-primary">Search</button>
+                </div>
+            </form>
+            <div id="events-field" class="column is-8">
+            </div>
         </div>
     </main>
-
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
