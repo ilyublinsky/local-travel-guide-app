@@ -51,31 +51,26 @@
 
     <main class="container is-fluid">
         <div class="columns">
-            <section class=" content box column is-10 is-offset-1">
-                <h2 class="has-text-centered">Search Events</h2>
-                -->
-
-                <form class="content box column is-4 has-background-light">
-                    <h2 class="has-text-centered">
-                        Search for Events in a city!
-                    </h2>
-                    <div class="tabs is-centered is-toggle is-toggle-rounded">
-                        <ul>
-                            <li class="is-active">
-                                <a>
-                                    <span class="icon is-small"><i class="fas fa-utensils"
-                                            aria-hidden="true"></i></span>
-                                    <span>Events</span>
-                                </a>
-                            </li>
-                        </ul>
+            <form class="content box column is-4 has-background-light">
+                <h2 class="has-text-centered">
+                    Search for Events in a city!
+                </h2>
+                <div class="tabs is-centered is-toggle is-toggle-rounded">
+                    <ul>
+                        <li class="is-active">
+                            <a>
+                                <span class="icon is-small"><i class="fas fa-utensils" aria-hidden="true"></i></span>
+                                <span>Events</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="field">
+                    <label class="label">City</label>
+                    <div class="control">
+                        <input id="search-input-city" class="input" type="text" placeholder="Ex: Seattle">
                     </div>
-                    <div class="field">
-                        <label class="label">City</label>
-                        <div class="control">
-                            <input id="search-input-city" class="input" type="text" placeholder="Ex: Seattle">
-                        </div>
-                        <!-- <div class="field">
+                    <!-- <div class="field">
                         <label class="label">Food establishments</label>
                         <div class="control">
                             <div class="select">
@@ -95,7 +90,7 @@
                             </div>
                         </div>
                     </div> -->
-                        <!-- <div class="field">
+                    <!-- <div class="field">
                         <label class="label">Cuisine</label>
                         <div class="control">
                             <div class="select">
@@ -116,15 +111,13 @@
                             </div>
                         </div> 
                     </div> -->
-                        <button id="search-button-event" class="button is-primary">Search</button>
-                    </div>
-                </form>
-                <div id="events-field" class="column is-8">
-
+                    <button id="search-button-event" class="button is-primary">Search</button>
                 </div>
+            </form>
+            <div id="events-field" class="column is-8">
+            </div>
         </div>
     </main>
-
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
