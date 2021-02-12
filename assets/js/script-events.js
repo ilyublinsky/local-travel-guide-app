@@ -78,20 +78,52 @@ $("#search-button-event").on("click", function(event){
     event.preventDefault();
     console.log('Hello World')
 
-// Storing the cities to local storage
-
-function getCity() {
-    localStorage.setItem("event-cities", JSON.stringify(userCity));
-  }
-
 
     var eventNameInput = $("#search-input-city").val();
     var eventDateSelect = $("#search-input-event").val();
         console.log(eventNameInput);
-
-
+        var userCityEl = document.querySelector("#search-input-city");
+        userCity = userCityEl.value
+       // Storing the cities to local storage
+       if (userCity == null) {
+        userCity = [];
+    }
+    if (userCity.includes(cityName)) {
+        localStorage.setItem("viewedCityEvents", cityName)
+        renderButtons(cityName)
+        console.log(cityname);
+    } else {
+        userCity.push(cityName);
+        localStorage.setItem("viewedCityEvents", JSON.stringify(userCities));
+        localStorage.setItem("viewedCity", cityName)
+        renderButtons();
+    }
+});
     eventApiCall (eventNameInput);
 });
+
+function renderButton(cityName) {
+    $("#viewed-cities").empty();
+    userCity = JSON.parse(localStorage.setItem("event-cities");
+    var c = 0;
+    
+    for (var i = viewedCityEvents.length - 1; i >= 0; i--) {
+        x++
+        var listButton = $("<li>");
+        var citybutton = $("<button>").attr({ data: viewedCityEvents[i], class: "button is-info is-outlined" }).text(viewedCityEvents[i]);
+        $("#viewedCityEvents").append(lisItemButton.append(citybutton));
+        console.log(viewedCityEvents[i]);
+        if (c > 4) {
+            break
+        }
+    }
+
+    $(document).ready(function () {
+        if (localStorage.searchedCities == null) {
+            return
+        } else {
+            renderButtons();
+        }
 
 // Need to be able to pull every event name (one variable)
 // Make a function to populate the list (append)
