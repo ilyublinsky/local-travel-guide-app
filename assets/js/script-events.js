@@ -53,6 +53,7 @@ function eventResults(displayEvents) {
         eventNameSection.append(infoColumn);
         infoColumn.append(ticketURL);
         eventNameSection.append(ticketLimit.append(ticketNote, accessibility, generalInfo));
+
     }
 }
 // Grabbing info from API
@@ -76,10 +77,8 @@ $("#search-button-event").on("click", function (event) {
     event.preventDefault();
     console.log('Hello World')
 
-
     var eventNameInput = $("#search-input-city").val();
     var eventDateSelect = $("#search-input-event").val();
-
     console.log(eventNameInput);
 
 
