@@ -87,28 +87,28 @@ $("#search-button-event").on("click", function (event) {
 
 });
 
-function renderButton(cityName) {
-    $("#viewed-cities").empty();
-    userCity = JSON.parse(localStorage.setItem("event-cities");
-    var c = 0;
-    
-    for (var i = viewedCityEvents.length - 1; i >= 0; i--) {
-        x++
-        var listButton = $("<li>");
-        var citybutton = $("<button>").attr({ data: viewedCityEvents[i], class: "button is-info is-outlined" }).text(viewedCityEvents[i]);
-        $("#viewedCityEvents").append(lisItemButton.append(citybutton));
-        console.log(viewedCityEvents[i]);
-        if (c > 4) {
-            break
-        }
-    }
+// function renderButton(cityName) {
+//     $("#viewed-cities").empty();
+//     userCity = JSON.parse(localStorage.setItem("event-cities");
+//     var c = 0;
 
-    $(document).ready(function () {
-        if (localStorage.searchedCities == null) {
-            return
-        } else {
-            renderButtons();
-        }
+//     for (var i = viewedCityEvents.length - 1; i >= 0; i--) {
+//         x++
+//         var listButton = $("<li>");
+//         var citybutton = $("<button>").attr({ data: viewedCityEvents[i], class: "button is-info is-outlined" }).text(viewedCityEvents[i]);
+//         $("#viewedCityEvents").append(lisItemButton.append(citybutton));
+//         console.log(viewedCityEvents[i]);
+//         if (c > 4) {
+//             break
+//         }
+//     }
+
+//     $(document).ready(function () {
+//         if (localStorage.searchedCities == null) {
+//             return
+//         } else {
+//             renderButtons();
+//         }
 
 // Need to be able to pull every event name (one variable)
 // Make a function to populate the list (append)
