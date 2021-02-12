@@ -2,10 +2,6 @@ body {
   background: linear-gradient(to bottom, #339933 0%, #000099 100%);
   height: auto;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  background-size: auto;
-  width: auto;
-  background-size: auto;
-  margin: 20px;
   min-height: 1200px;
 }
 
@@ -21,6 +17,7 @@ h1 {
 html {
   height: 100vh;
 }
+
 p {
   color: rgb(0, 0, 0);
   font-size: x-large;
@@ -30,13 +27,6 @@ p {
 
 .navbar-collapse {
   flex-grow: 5;
-}
-
-.container {
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  clear: both;
 }
 
 .insider-footer {
@@ -59,28 +49,28 @@ select, option {
 }
 
 .restaurant-field {
-  margin-bottom: 20px;
+padding: 30px;
+margin-bottom: 20px;
+margin-left: 1.5rem;
+margin-right: 1.5rem;
 } 
 
 figure {
-
-  display: flex;
-  flex-flow: column;
-  padding: 5px;
-  max-width: 220px;
-  margin: auto;
-
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 220px;
+    margin: auto;
+    
 }
 
-
-
-
 figcaption {
-  background-color: rgb(255, 255, 255);
-  color: #fff;
-  font: italic smaller sans-serif;
-  padding: 3px;
-  text-align: center;
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
 }
 
 .subtitle {
@@ -97,14 +87,14 @@ padding: 0.25rem 1rem !important;
 
 @media screen and (max-width: 420px) {
 
-    .columns.is-mobile {
+    .columns .is-mobile {
     display: block !important;
 }
 
     .mobile-responsive {
     display: block;
-    margin-left: auto;
-    margin-right: auto 
+    margin-left: 1rem;
+    margin-right: 1rem;
     }
 
     .mobile-center-text {
@@ -112,19 +102,11 @@ padding: 0.25rem 1rem !important;
     }
 }
 
-
 /*|||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-
 .navbar-dropdown {
   color: #000099;
   background-color: #000099;
   background: #000099;
-}
-
-.container {
-  position: absolute;
-  min-height: 100vh;
-  
 }
 
 .content {
