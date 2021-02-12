@@ -10,13 +10,15 @@ var requestHeader = new Headers({
     'user-key': apiKey
 });
 
+
+
 function displayRestaurants(restaurantsList) {
     console.log(restaurantsList);
     var data = restaurantsList;
     // $("#restaurants-found").empty();
 
     for (var i = 0; i < data.length; i++) {
-        var restaurantField = $("<div>").attr({ id: i, class: "card restaurant-field has-background-light" })
+        var restaurantField = $("<div>").attr({ id: i, class: "card restaurant-field container2" })
         // var restaurantField = $("<div>").addClass("card restaurant-field has-background-light");
         var restaurantMainSection = $("<section>").addClass("columns is-mobile card-content");
         var figureBox = $("<figure>").addClass("column mobile-responsive");
@@ -164,24 +166,21 @@ function displayRestaurants(restaurantsList) {
         callButton.append(callButtonIconSpan.append(callButtonIcon), callButtonSpanText);
         directionsButton.append(directionButtonIconSpan.append(directionButtonIcon))
 
-       
+
     }
     $("#search-button-rest").removeClass("is-loading");
-    
-    $(".save-button").on("click", function () {
-        var savedArray = $("")
-        var restaurantData =
-            localStorage.setItem(savedArray, restaurantData)
-    });
 
-    
+    // $(".save-button").on("click", function () {
+    //     // var searchedCities = []
+    //         localStorage.setItem(savedArray, restaurantData)
+    // });
 }
 
 function displayCityOnlyRestaurants(restaurantsList, cuisineId, establishmentId) {
     $("#restaurants-found").empty();
     var notification = $("<div>").addClass("notification is-primary has-text-centered");
     var notFound = $("<p>").text("No restaurants found with " + cuisineName + " cuisine" + " and " + establishmentName + " establishment");
-    var checkAvailable = $("<p>").text("Check some restaurants around instead");
+    var checkAvailable = $("<p>").text("Check other restaurants around");
 
     $("#restaurants-found").append(notification);
     notification.append(notFound, checkAvailable);
@@ -360,10 +359,13 @@ function searchCityId(cityName) {
         // Calling other 2 API Calls knowing the cityId
         searchCuisinesId(cityId);
     });
+
 }
+
 //  Jquerry onclick grabs cityName, establishmentName, cuisineNameInput and
 // starts the chain of functions - searchCityId()...
 $("#search-button-rest").on("click", function (event) {
+
     event.preventDefault();
     // Used both - Jquerry and Vanilla JS(DOM commands)
     var cityNameEl = document.querySelector("#search-input-city");
@@ -372,27 +374,57 @@ $("#search-button-rest").on("click", function (event) {
     var cuisineNameInput = $("#cuisine-option").val();
     cuisineName = cuisineNameInput
     establishmentName = $("#establishment-option").val();
-
-    // if (establishmentName == null) {
-    //     var notificationToSelect = $("<div>").addClass("notification is-primary has-text-centered");
-    //     var select = $("<p>").text("No establishment selected");
-    //     var chooseOne = $("<p>").text("Choose an establishment");
-
-    //     $("#restaurants-found").append(notificationToSelect);
-    //     notificationToSelect.append(select, chooseOne);
-    // } else if (cuisineNameInput == null) {
-    //     var notificationToSelect = $("<div>").addClass("notification is-primary has-text-centered");
-    //     var select = $("<p>").text("No cuisine selected");
-    //     var chooseOne = $("<p>").text("Choose a cuisine");
-
-    //     $("#restaurants-found").append(notificationToSelect);
-    //     notificationToSelect.append(select, chooseOne);
-    // }
     console.log(cityName);
     console.log(establishmentName);
     console.log(cuisineNameInput);
-
     searchCityId(cityName);
     $("#search-button-rest").addClass("is-loading");
+
+    // Local Storage to store persistent data
+    searchedCities = JSON.parse(localStorage.getItem("searchedCities"));
+    if (searchedCities == null) {
+        searchedCities = [];
+    }
+    if (searchedCities.includes(cityName)) {
+        localStorage.setItem("searchedCity", cityName)
+        renderButtons(cityName)
+    } else {
+        // if array doesn't include the new input push the cityName in the array
+        searchedCities.push(cityName);
+        localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
+        localStorage.setItem("searchedCity", cityName)
+        renderButtons();
+    }
 });
 
+function renderButtons(cityName) {
+    $("#searched-cities").empty();
+    searchedCities = JSON.parse(localStorage.getItem("searchedCities"));
+    var x = 0;
+    // if (searchedCities.includes(cityName)) {
+    //     var lisItemButton = $("<li>");
+    //     var citybutton = $("<button>").addClass("button is-info is-outlined").text(cityName);
+    //     $("#searched-cities").append(lisItemButton.append(citybutton));
+    // }
+
+    // dynamically append the buttons
+    for (var i = searchedCities.length - 1; i >= 0; i--) {
+        x++
+        var lisItemButton = $("<li>");
+        var citybutton = $("<button>").attr({ data: searchedCities[i], class: "button is-info is-outlined" }).text(searchedCities[i]);
+        // var citybutton = $("<button>").addClass("button is-info is-outlined").text(searchedCities[i]);
+        $("#searched-cities").append(lisItemButton.append(citybutton));
+        console.log(searchedCities[i])
+        if (x > 4) {
+            break
+        }
+    }
+}
+
+$(document).ready(function () {
+    if (localStorage.searchedCities == null) {
+        return
+    } else {
+        renderButtons();
+    }
+})

@@ -12,6 +12,12 @@ body {
 
 .container1 {
     background: linear-gradient(to bottom, #DCDCDC 0%, #ADD8E6 100%);       
+    margin-left: 20px;
+}
+
+.container2 {
+    background: linear-gradient(to bottom, #DCDCDC 0%, #ADD8E6 100%);       
+    margin-right: 20px;
 }
 
 #restaurants-found {

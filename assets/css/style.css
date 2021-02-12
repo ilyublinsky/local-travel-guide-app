@@ -63,24 +63,21 @@ select, option {
 } 
 
 figure {
-
-  display: flex;
-  flex-flow: column;
-  padding: 5px;
-  max-width: 220px;
-  margin: auto;
-
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 220px;
+    margin: auto;
+    
 }
 
-
-
-
 figcaption {
-  background-color: rgb(255, 255, 255);
-  color: #fff;
-  font: italic smaller sans-serif;
-  padding: 3px;
-  text-align: center;
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
 }
 
 .subtitle {
@@ -112,9 +109,7 @@ padding: 0.25rem 1rem !important;
     }
 }
 
-
 /*|||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-
 .navbar-dropdown {
   color: #000099;
   background-color: #000099;
@@ -149,7 +144,7 @@ padding: 0.25rem 1rem !important;
 }
 
 .img1 {
-  padding-left: 40px;
+  padding-left: 60x;
 
 }
 

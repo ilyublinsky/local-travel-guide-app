@@ -11,10 +11,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/event.css">
     <link rel="stylesheet" href="assets/css/restaurant.css">
-
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/event.css">
 
 </head>
 
@@ -23,7 +21,7 @@
         <div class="navbar-brand">
             <a class="navbar-item" href="index.html">
                 <h1 class="has-text-grey-lighter">Traveler's Insider!</h1>
-                <a class="btn-floating btn-li mx-1" href="https://ilyublinsky.github.io/group-project/">
+                <a class="btn-floating btn-li mx-1" href="https://github.com/ilyublinsky/group-project">
                     <i class="fab fa-github"></i>
                 </a>
             </a>
@@ -32,22 +30,7 @@
             <div class="navbar-item">
                 <a class="button is-success is-rounded" href="restaurants.html">Search Restaurants</a>
                 <a class="button is-success is-rounded" href="events.html">Search Events</a>
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">Saved</a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            Events
-                        </a>
-                        <a class="navbar-item">
-                            Restaurants
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Have Fun!
-                        </a>
-                    </div>
-                </div>
-
+                <a class="navbar-item has-text-light link" href="restaurants.html">Saved</a>
             </div>
         </div>
     </nav>
@@ -56,60 +39,89 @@
 
     <main class="container is-fluid">
         <div class="columns">
-            <section class=" content box column is-10 is-offset-1">
+            <section class=" content1 box column is-10 is-offset-1">
                 <h2 class="has-text-centered">Search Events</h2>
-            -->
+                
 
-            <form class="content box column is-4 has-background-light">
-                <h2 class="has-text-centered">
-                    Search for Events in a city!
-                </h2>
-                <div class="tabs is-centered is-toggle is-toggle-rounded">
-                    <ul>
-                        <li class="is-active">
-                            <a>
-                                <span class="icon is-small"><i class="fas fa-utensils" aria-hidden="true"></i></span>
-                                <span>Events</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="field">
-                    <label class="label">City</label>
-                    <div class="control">
-                        <input id="search-input-city" class="input" type="text" placeholder="Ex: Seattle">
+                <form class="content1 box column is-4">
+                    <h2 class="has-text-centered">
+                        Search for Events in a city!
+                    </h2>
+                    <div class="tabs is-centered is-toggle is-toggle-rounded">
+                        <ul>
+                            <li class="is-active">
+                                <a>
+                                    <span class="icon is-small"><i class="fas fa-info-circle"
+                                            aria-hidden="true"></i></span>
+                                    <span>Events</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <button id="search-button-rest" class="button is-success is-rounded">Search</button>
+                    <div class="field">
+                        <label class="label">City</label>
+                        <div class="control">
+                            <input id="search-input-city" class="input" type="text" placeholder="Ex: Seattle">
+                        </div>
+                        <!-- <div class="field">
+                        <label class="label">Food establishments</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="establishment-option">
+                                    <option value="" disabled selected>Select an establishments</option>
+                                    <option value="Café">Cafe</option>
+                                    <option value="Casual Dining">Casual Dining</option>
+                                    <option value="Diner">Diner</option>
+                                    <option value="Lounge">Lounge</option>
+                                    <option value="Pizzeria">Pizzeria</option>
+                                    <option value="Quick Bites">Quick Bites</option>
+                                    <option value="Sandwich Shop">Sandwich Shop</option>
+                                    <option value="Wine Bar">Wine Bar</option>
+                                    <option value="Pub">Pub</option>
+                                    <option value="Fast Food">Fast Food</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div> -->
+                        <!-- <div class="field">
+                        <label class="label">Cuisine</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="cuisine-option">
+                                    <option value="" disabled selected>Select a cuisine... ex: American</option>
+                                    <option value="American">American</option>
+                                    <option value="European">European</option>
+                                    <option value="Eastern Europe">Eastern European</option>
+                                    <option value="Indian">Indian</option>
+                                    <option value="Latin American">Latin American</option>
+                                    <option value="Asian">Asian</option>
+                                    <option value="Seafood">Seafood</option>
+                                    <option value="Bakery">Bakery</option>
+                                    <option value="Grill">Grill</option>
+                                    <option value="Salad">Salad</option>
+                                    <option value="Desserts">Desserts</option>
+                                </select>
+                            </div>
+                        </div> 
+                    </div> -->
+                        <button id="search-button-event" class="button is-primary">Search</button>
+                    </div>
                 </form>
-            </section>
-        </div>
+                <div id="events-field" class="column is-8">
 
-
-
-        <!--Adding a results column.-->
-        <div class="column is-12">
-            <div id="events-field" class="tabs is-centered is-boxed is-medium">
-                <ul>
-                    <li class="is-active">
-                        <a>
-                            <span class="icon is-small"><i class="far fa-comment-music" aria-hidden="true"></i></span>
-                            <span>Events</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                </div>
         </div>
     </main>
 
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <div class="footer1"> Traveler's Insider! Follow us on
-                    <a class="btn-floating btn-li mx-1" href="https://ilyublinsky.github.io/group-project/">
-                        <i class="fab fa-github"></i>
-                    </a>
-            </p>
-        </div>
+            <div class="footer1"> Traveler's Insider! Follow us on
+                <a class="btn-floating btn-li mx-1" href="https://github.com/ilyublinsky/group-project">
+                    <i class="fab fa-github"></i>
+                </a>
+                </p>
+            </div>
         </div>
     </footer>
 
