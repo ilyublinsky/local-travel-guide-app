@@ -43,11 +43,6 @@ p {
   font-weight: bold;
 }
 
-select, option {
-    width: 200% !important;
-    max-width: 200% !important;
-}
-
 .restaurant-field {
 padding: 30px;
 margin-bottom: 20px;
