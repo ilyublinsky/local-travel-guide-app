@@ -43,17 +43,10 @@ p {
   font-weight: bold;
 }
 
-/* Develop-Victor */
-/*|||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-/* .control input  {
-    
-    max-width: 75%;
-}
-
 select, option {
     width: 200% !important;
     max-width: 200% !important;
-/* } */
+}
 
 .restaurant-field {
 padding: 30px;
@@ -149,4 +142,3 @@ padding: 0.25rem 1rem !important;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: italic;
 }
-
