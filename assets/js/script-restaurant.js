@@ -338,11 +338,20 @@ function searchCityId(cityName) {
         return response.json();
     }).then(function (data) {
         console.log(data);
-
-        var cityId = data.location_suggestions[0].id;
-        console.log("CityId: " + cityId);
-        // Calling other 2 API Calls knowing the cityId
-        searchCuisinesId(cityId);
+        if (data.location_suggestions[0] == null) {
+            $("#search-button-rest").removeClass("is-loading");
+            $("#restaurants-found").empty();
+            var notification = $("<div>").addClass("container1 notification is-primary has-text-centered");
+            var notFound = $("<p>").text("No restaurants found in " + cityName);
+            $("#search-button-rest").removeClass("is-loading");
+            $("#restaurants-found").append(notification);
+            notification.append(notFound);
+        } else {
+            var cityId = data.location_suggestions[0].id;
+            console.log("CityId: " + cityId);
+            // Calling other 2 API Calls knowing the cityId
+            searchCuisinesId(cityId);
+        }
     });
 
 }
